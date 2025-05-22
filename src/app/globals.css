@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html {
+    background: #fff;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input::placeholder {
+    color: var(--text-500);
+  }
+
+  input:-webkit-autofill,
+  input:focus:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px var(--bg-secondary) inset;
+  }
+
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .mini-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 8px;
+  }
+
+  .watch-content > * {
+    background-color: var(--background-color-watch);
+    color: var(--text-color-watch);
+    font-size: var(--font-size-watch);
+    line-height: var(--line-height-watch);
+    font-family: var(--font-family-watch);
+    margin: 30px 0;
+    padding: 0;
+    font-weight: 400;
+    word-break: break-word;
+  }
+}
+
+:root {
+  /* gray */
+  --gray-0: #fff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5fa;
+  --gray-200: #e3e8ef;
+  --gray-300: #cdd5df;
+  --gray-400: #9aa4b2;
+  --gray-500: #697586;
+  --gray-600: #4b5565;
+  --gray-700: #364152;
+  --gray-800: #202939;
+  --gray-900: #121926;
+
+  --bg-primary: #F0F1F3;
+  --bg-black: #000000;
+  --bg-success: #EBF7E8;
+  --bg-warning: #FBFFCE;
+  --bg-in-progress: #DCFBFF;
+
+  --color-success: #34AB16;
+  --color-warning: #99A700;
+  --color-in-progress: #29B2C5;
+
+  --bg-100: var(--gray-100);
+  --border-200: var(--gray-200);
+  --text-900: var(--gray-900);
+  --text-700: var(--gray-700);
+  --text-500: var(--gray-500);
+  --text-600: var(--gray-600);
+
+  --primary-color: #FEC009;
+  --secondary-color: #295197;
+  --background: #F0F1F3;
+  --background-card: #fff;
+  --text-primary: #4D4D4D;
+  --text-secondary: #2A313A;
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+}
+
+html {
+  @apply h-full;
+}
+body {
+  @apply h-full;
+}
+div#__next {
+  @apply h-full;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#pagination {
+  position: absolute;
+  left: 50%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+#pagination .swiper-pagination-bullet {
+  background: var(--text-primary);
+  opacity: 1;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#pagination .swiper-pagination-bullet.bullet-active {
+  background: var(--primary-color);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-title-gradient {
+    @apply bg-gradient-to-r from-black to-[#FFE9A7] bg-clip-text text-transparent;
+  }
+
+  .text-sub-title-gradient {
+    @apply bg-gradient-to-r from-white to-[#FFE9A7] bg-clip-text text-transparent;
+  }
+
+  .banner-image {
+    @apply bg-no-repeat bg-cover bg-center w-full
+  }
+
+  .overlay {
+    @apply absolute top-0 left-0 w-full z-[-1] h-full bg-black opacity-70
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 20s) linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee var(--duration, 20s) linear infinite reverse;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 20s) linear infinite;
+}
+
+.animate-marquee-vertical-reverse {
+  animation: marquee-vertical var(--duration, 20s) linear infinite reverse;
+}
