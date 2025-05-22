@@ -1,5 +1,3 @@
-import type { Metadata } from 'next'
-
 import Footer from '@/components/layouts/footer'
 import Banner from '@/features/home/banner'
 import Contact from '@/features/home/contact'
@@ -8,10 +6,6 @@ import Feedback from '@/features/home/feedback'
 import Package from '@/features/home/package'
 import Problem from '@/features/home/problem'
 import WCU from '@/features/home/wcu'
-
-export const metadata: Metadata = {
-  title: 'Trang chủ | Hải Mai English',
-}
 
 export default async function HomePage() {
   return (

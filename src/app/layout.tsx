@@ -12,31 +12,37 @@ const beVietNamPro = Be_Vietnam_Pro({
 })
 
 export const metadata: Metadata = {
-  title: 'Hải Mai English',
-  description: 'Hãy học khi còn có cơ hội',
-  metadataBase: new URL('http://localhost:3000/'),
+  title: 'Q-English | Học tiếng Anh dễ hiểu qua video',
+  description:
+    'Q-English mang đến phương pháp học tiếng Anh mới mẻ: video ngắn, trực quan, dễ nhớ. Dành cho người mất gốc và người bận rộn.',
+  metadataBase: new URL('https://q-english.vn/'), // <-- thay bằng domain chính thức
   keywords: [
-    'vstep',
-    'toeic',
-    'Hải Mai English',
-    'Học tiếng anh',
-    'Hai Mai English',
-    'Tiếng anh mất gốc',
+    'Q-English',
+    'Học tiếng Anh online',
+    'Video học tiếng Anh',
+    'Tiếng Anh mất gốc',
+    'Học tiếng Anh tại nhà',
+    'TOEIC',
+    'VSTEP',
+    'Tiếng Anh giao tiếp',
+    'Tiếng Anh cho người đi làm',
+    'Tiếng Anh cho người bận rộn',
   ].join(', '),
   openGraph: {
-    title: 'Hải Mai English',
-    description: 'Hãy học khi còn có cơ hội',
+    title: 'Q-English - Học tiếng Anh dễ hiểu qua video',
+    description:
+      'Video học tiếng Anh mỗi ngày, dễ hiểu – dễ nhớ – dễ kiên trì. Học theo tốc độ của bạn, không áp lực!',
     url: '/',
     type: 'website',
-    // images: [
-    //   {
-    //     url: '/',
-    //     width: 1200,
-    //     height: 630,
-    //     alt: 'Vstep',
-    //   },
-    // ],
-    siteName: 'Hải Mai English',
+    images: [
+      {
+        url: 'https://q-english.vn/og-image.jpg', // <-- Thay bằng ảnh đại diện chia sẻ của bạn
+        width: 1200,
+        height: 630,
+        alt: 'Q-English - Học tiếng Anh dễ hiểu qua video',
+      },
+    ],
+    siteName: 'Q-English',
   },
 }
 
