@@ -3,52 +3,20 @@ import React from 'react'
 import { Button } from '@/components/common/button'
 import IconTickCircle from '@/components/icons/tick-circle'
 import AppContainer from '@/components/layouts/container'
+import type { IPackage } from '@/utils/types/interface/ILandingPage'
 
-const DATA = [
-  {
-    name: 'Gói Cơ Bản',
-    price: '99.000 VNĐ',
-    content: [
-      'Người mới bắt đầu, mất gốc',
-      '50 video cơ bản, luyện phản xạ',
-      'Dễ bắt đầu, chi phí thấp',
-      'Email hỗ trợ',
-    ],
-  },
-  {
-    name: 'Gói Phổ Biến 🔥',
-    price: '199.000 VNĐ',
-    content: [
-      'Người học lại, muốn tiến bộ đều',
-      '100+ video đa chủ đề, có lộ trình học',
-      'Đầy đủ, cân bằng giữa giá trị và giá',
-      'Email hỗ trợ',
-    ],
-  },
-  {
-    name: 'Gói Nâng Cao VIP 🚀',
-    price: '499.000 VNĐ',
-    content: [
-      'Người nghiêm túc đầu tư học bài bản',
-      'Full bộ video + nội dung nâng cao + quà tặng kèm',
-      'Hỗ trợ lâu dài, tài liệu bonus, cập nhật định kỳ',
-      'Ưu tiên hỗ trợ + group kín riêng',
-    ],
-  },
-]
-
-const Package = () => {
+const Package = ({ data }: { data: IPackage }) => {
   return (
     <section className='py-8 md:py-14'>
       <AppContainer>
         <div className='mx-auto flex flex-col items-center gap-2 text-center md:max-w-[85%]'>
           <h2 className='text-2xl font-bold uppercase text-[#56ab2f] md:text-3xl'>
-            Các gói học tiếng Anh bạn có thể chọn
+            {data.title}
           </h2>
           <div className='h-2 w-[90px] bg-primary'></div>
         </div>
         <div className='mx-auto mt-8 grid w-full grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 lg:max-w-[80%] lg:grid-cols-3'>
-          {DATA.map((item, index) => (
+          {data.data.map((item, index) => (
             <div
               key={index}
               className='flex flex-col justify-between rounded-xl p-8'

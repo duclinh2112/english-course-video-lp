@@ -3,8 +3,9 @@ import React from 'react'
 import { Button } from '@/components/common/button'
 import ImageWrap from '@/components/common/img-wrap'
 import AppContainer from '@/components/layouts/container'
+import type { IBanner } from '@/utils/types/interface/ILandingPage'
 
-const Banner = () => {
+const Banner = ({ data }: { data: IBanner }) => {
   return (
     <section
       className='rounded-b-[50px] py-[100px] md:rounded-b-[100px]'
@@ -13,15 +14,13 @@ const Banner = () => {
       <AppContainer>
         <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
           <div>
-            <h1 className='text-3xl font-bold uppercase leading-relaxed text-white md:text-4xl'>
-              Tự học Tiếng Anh Giao Tiếp Dễ Như Ăn Kẹo!
+            <h1 className='text-[30px] font-bold uppercase leading-relaxed text-white md:text-[36px]'>
+              {data.title}
             </h1>
-            <p className='mt-4 text-xl font-semibold text-white md:text-2xl'>
-              Bộ video học tiếng Anh siêu dễ hiểu – dành cho người mất gốc và
-              không có thời gian.
-              <br />
-              Học mọi lúc, mọi nơi – không cần giáo trình phức tạp.
-            </p>
+            <div
+              className='mt-4 text-xl font-semibold text-white md:text-2xl'
+              dangerouslySetInnerHTML={{ __html: data.content }}
+            ></div>
             <div className='mt-10 max-sm:flex max-sm:justify-center'>
               <Button
                 href='#contact'
@@ -34,8 +33,8 @@ const Banner = () => {
           </div>
           <div>
             <ImageWrap
-              src='/assets/images/img-banner.jpg'
-              alt='Q English Banner'
+              src={data.image.src}
+              alt={data.image.alt}
               paddingTop='66.25%'
               borderRadius='12px'
               priority
