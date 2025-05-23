@@ -10,5 +10,6 @@ export const postContactSchema = yup.object().shape({
     .matches(emailRegExp, 'Vui lòng nhập đúng định dạng email'),
   phone: yup.string().required('Vui lòng nhập trường này'),
   package: yup.string().required('Vui lòng nhập trường này'),
+  target: yup.string().default(''),
   content: yup.string().default(''),
 })

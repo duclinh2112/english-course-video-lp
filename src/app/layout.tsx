@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Q-English | Học tiếng Anh dễ hiểu qua video',
   description:
     'Q-English mang đến phương pháp học tiếng Anh mới mẻ: video ngắn, trực quan, dễ nhớ. Dành cho người mất gốc và người bận rộn.',
-  metadataBase: new URL('https://q-english.vn/'), // <-- thay bằng domain chính thức
+  metadataBase: new URL('https://english-course-video-lp.vercel.app/'), // <-- thay bằng domain chính thức
   keywords: [
     'Q-English',
     'Học tiếng Anh online',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://q-english.vn/og-image.jpg', // <-- Thay bằng ảnh đại diện chia sẻ của bạn
+        url: 'https://english-course-video-lp.vercel.app/og-image.jpg', // <-- Thay bằng ảnh đại diện chia sẻ của bạn
         width: 1200,
         height: 630,
         alt: 'Q-English - Học tiếng Anh dễ hiểu qua video',

@@ -9,10 +9,8 @@ import { Form, useForm } from '@/components/common/form'
 import { Input } from '@/components/common/input'
 import { Select } from '@/components/common/select'
 import { TextArea } from '@/components/common/textarea'
+import { BASE_URL_API } from '@/utils/constants'
 import { postContactSchema } from '@/utils/validations/createPostSchema'
-
-const FORM_URL =
-  'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdIO3z06vqp3D8RlSAIwxgSgjembUy2Dz46B59i2lhAC7nJqA/formResponse'
 
 const ENTRY_IDS = {
   name: 'entry.1283335061',
@@ -20,6 +18,7 @@ const ENTRY_IDS = {
   phone: 'entry.230213932',
   package: 'entry.648694492',
   content: 'entry.2039731150',
+  target: 'entry.1812766330',
 }
 
 const OPTIONS = [
@@ -34,6 +33,41 @@ const OPTIONS = [
   {
     value: 'Gói nâng cao (499.000 VNĐ)',
     label: 'Gói nâng cao (499.000 VNĐ)',
+  },
+]
+
+const TARGET = [
+  {
+    value: 'Người lớn',
+    label: 'Người lớn',
+  },
+  {
+    value: 'Phụ huynh có con 4–7 tuổi',
+    label: 'Phụ huynh có con 4–7 tuổi',
+  },
+  {
+    value: 'Phụ huynh có con cấp 1 (8–11 tuổi)',
+    label: 'Phụ huynh có con cấp 1 (8–11 tuổi)',
+  },
+  {
+    value: 'Phụ huynh có con cấp 2 (12–15 tuổi)',
+    label: 'Phụ huynh có con cấp 2 (12–15 tuổi)',
+  },
+  {
+    value: 'Phụ huynh có con cấp 3 (16–17 tuổi)',
+    label: 'Phụ huynh có con cấp 3 (16–17 tuổi)',
+  },
+  {
+    value: 'Sinh viên',
+    label: 'Sinh viên',
+  },
+  {
+    value: 'Người đi làm / Nhân viên văn phòng',
+    label: 'Người đi làm / Nhân viên văn phòng',
+  },
+  {
+    value: 'Khác',
+    label: 'Khác',
   },
 ]
 
@@ -54,9 +88,10 @@ const ContactForm = () => {
       formData.append(ENTRY_IDS.phone, data.phone)
       formData.append(ENTRY_IDS.package, data.package)
       formData.append(ENTRY_IDS.content, data.content)
+      formData.append(ENTRY_IDS.target, data.target)
 
       setIsFetching(true)
-      await fetch(FORM_URL, {
+      await fetch(String(BASE_URL_API), {
         method: 'POST',
         mode: 'no-cors',
         body: formData,
@@ -82,6 +117,7 @@ const ContactForm = () => {
     setValue('phone', '')
     setValue('package', '')
     setValue('content', '')
+    setValue('target', '')
   }
 
   return (
@@ -99,6 +135,9 @@ const ContactForm = () => {
       </div>
       <Form.Item name='package' label='Chọn gói'>
         <Select options={OPTIONS} width={'100%'} placeholder='Chọn gói' />
+      </Form.Item>
+      <Form.Item name='target' label='Chọn đối tượng'>
+        <Select options={TARGET} width={'100%'} placeholder='Chọn đối tượng' />
       </Form.Item>
       <Form.Item name='content' label='Nội dung'>
         <TextArea placeholder='Nội dung' />
